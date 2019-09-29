@@ -1,0 +1,10 @@
+C:\Users\Kebo\Desktop\Kool\programmeerimine\kivipaberk-rid\kivipaberkäärid\obj\Debug\netcoreapp2.0\kivipaberkäärid.csprojAssemblyReference.cache
+C:\Users\Kebo\Desktop\Kool\programmeerimine\kivipaberk-rid\kivipaberkäärid\obj\Debug\netcoreapp2.0\kivipaberkäärid.AssemblyInfoInputs.cache
+C:\Users\Kebo\Desktop\Kool\programmeerimine\kivipaberk-rid\kivipaberkäärid\obj\Debug\netcoreapp2.0\kivipaberkäärid.AssemblyInfo.cs
+C:\Users\Kebo\Desktop\Kool\programmeerimine\kivipaberk-rid\kivipaberkäärid\bin\Debug\netcoreapp2.0\kivipaberkäärid.deps.json
+C:\Users\Kebo\Desktop\Kool\programmeerimine\kivipaberk-rid\kivipaberkäärid\bin\Debug\netcoreapp2.0\kivipaberkäärid.runtimeconfig.json
+C:\Users\Kebo\Desktop\Kool\programmeerimine\kivipaberk-rid\kivipaberkäärid\bin\Debug\netcoreapp2.0\kivipaberkäärid.runtimeconfig.dev.json
+C:\Users\Kebo\Desktop\Kool\programmeerimine\kivipaberk-rid\kivipaberkäärid\bin\Debug\netcoreapp2.0\kivipaberkäärid.dll
+C:\Users\Kebo\Desktop\Kool\programmeerimine\kivipaberk-rid\kivipaberkäärid\bin\Debug\netcoreapp2.0\kivipaberkäärid.pdb
+C:\Users\Kebo\Desktop\Kool\programmeerimine\kivipaberk-rid\kivipaberkäärid\obj\Debug\netcoreapp2.0\kivipaberkäärid.dll
+C:\Users\Kebo\Desktop\Kool\programmeerimine\kivipaberk-rid\kivipaberkäärid\obj\Debug\netcoreapp2.0\kivipaberkäärid.pdb
