@@ -9,7 +9,7 @@ namespace kivipaberkäärid
             int userRoll;
             int cpuPoint = 0;
             int userPoint = 0;
-            int rolls = 0;
+            //int rolls = 0;
             string name;
 
             //Introduction
@@ -25,89 +25,81 @@ namespace kivipaberkäärid
             Console.WriteLine("Lets begin! Insert your weapon (number).");
             userRoll = int.Parse(Console.ReadLine());
 
-            //Declaration of user number input into plain simple words
-            while ((userPoint < 3 && cpuPoint < 3) && rolls <= 3)
+            //Declaration of user number input into plain simple words           
+            if (userRoll == 1)
             {
-                if (userRoll == 1)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine($"Your weapon is Paper.");
-                }
+                Console.WriteLine();
+                Console.WriteLine($"Your weapon is Paper.");
+            }
 
-                else if (userRoll == 2)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine($"Your weapon is Rock.");
-                }
+            else if (userRoll == 2)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Your weapon is Rock.");
+            }
 
-                else
-                {
-                    Console.WriteLine();
-                    Console.WriteLine($"Your weapon is Scissors.");
-                }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Your weapon is Scissors.");
+            }
 
-                //Random number generator for CPU, scaled down to only 3 random numbers - 1 or 2 or 3.
-                Random randomGenerator = new Random();
-                int randomNumber = randomGenerator.Next(1, 4);
+            //Random number generator for CPU, scaled down to only 3 random numbers - 1 or 2 or 3.
+            Random randomGenerator = new Random();
+            int randomNumber = randomGenerator.Next(1, 4);
 
-                //Declaration of CPU random numbers into plain simple text.
-                if (randomNumber == 1)
-                {
-                    Console.WriteLine("My weapon is Paper.");
-                }
+            //Declaration of CPU random numbers into plain simple text.
+            if (randomNumber == 1)
+            {
+                Console.WriteLine("My weapon is Paper.");
+            }
 
-                else if (randomNumber == 2)
-                {
-                    Console.WriteLine("My weapon is Rock.");
-                }
+            else if (randomNumber == 2)
+            {
+                Console.WriteLine("My weapon is Rock.");
+            }
 
-                else
-                {
-                    Console.WriteLine("My weapon is Scissors.");
-                }
+            else
+            {
+                Console.WriteLine("My weapon is Scissors.");
+            }
 
-                //Deciding who is the winner.
-                if (randomNumber > userRoll)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("You LOOSE.");
-                    cpuPoint++;
-                    Console.WriteLine($"I have now {cpuPoint} points.");
-                    Console.WriteLine("Choose your weapon again.");
-                    Console.WriteLine();
-                    rolls++;                   
-                }
+            //Deciding who is the winner.
+            if (randomNumber > userRoll)
+            {
+                Console.WriteLine();
+                Console.WriteLine("You LOOSE.");
+                cpuPoint++;
+                Console.WriteLine($"I have now {cpuPoint} points.");
+                //Console.WriteLine("Choose your weapon again.");
+                Console.WriteLine();
+            }
 
-                else if (randomNumber < userRoll)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("You WIN.");
-                    userPoint++;
-                    Console.WriteLine($"You have now {userPoint} points.");
-                    Console.WriteLine("Choose your weapon again.");
-                    Console.WriteLine();
-                    rolls++;
-                }
+            else if (randomNumber < userRoll)
+            {
+                Console.WriteLine();
+                Console.WriteLine("You WIN.");
+                userPoint++;
+                Console.WriteLine($"You have now {userPoint} points.");
+                //Console.WriteLine("Choose your weapon again.");
+                Console.WriteLine();
+            }
 
-                else
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("It is a TIE.");
-                    Console.WriteLine("Choose your weapon again.");
-                    Console.WriteLine();
-                }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("It is a TIE.");
+                //Console.WriteLine("Choose your weapon again.");
+                Console.WriteLine();
+            }
+            if (cpuPoint == 3)
+            {
+                Console.WriteLine($"I have now {cpuPoint} and you have now {userPoint}. That means I won.");
+            }
 
-                if (cpuPoint == 3)
-                {
-                    Console.WriteLine($"I have now {cpuPoint} and you have now {userPoint}. That means I won.");
-                }
-
-                else if (userPoint == 3)
-                {
-                    Console.WriteLine($"You have now {userPoint} and I have now {cpuPoint}. That means you won.");
-                }
-                userRoll = int.Parse(Console.ReadLine());
-                continue;
+            else if (userPoint == 3)
+            {
+                Console.WriteLine($"You have now {userPoint} and I have now {cpuPoint}. That means you won.");
             }
         }
     }
