@@ -60,19 +60,17 @@ namespace kivipaberkäärid
                     Random randomGenerator = new Random();
                     int randomNumber = randomGenerator.Next(1, 4);
 
-                    if (randomNumber == 1)
+                    switch (randomNumber)
                     {
-                        Console.WriteLine("My weapon is Scissors.");
-                    }
-
-                    else if (randomNumber == 2)
-                    {
-                        Console.WriteLine("My weapon is Rock.");
-                    }
-
-                    else
-                    {
-                        Console.WriteLine("My weapon is Paper.");
+                        case 1:
+                            Console.WriteLine("My weapon is Scissors.");
+                            break;
+                        case 2:
+                            Console.WriteLine("My weapon is Rock.");
+                            break;
+                        case 3:
+                            Console.WriteLine("My weapon is Paper.");
+                            break;                      
                     }
 
                     //Deciding who is the winner.
