@@ -36,22 +36,19 @@ namespace kivipaberkäärid
 
                 //Checking for incorrect User input and declaration of User number input into plain simple words (User choosing weapon). Also if incorrect value
                 //inserted, asks to insert correct one. It just works somehow XD
+                Console.WriteLine();
                 switch (userRoll)
                 {
                     case 1:
-                        Console.WriteLine();
                         Console.WriteLine("Your chosen weapon is Scissors.");
                         break;
                     case 2:
-                        Console.WriteLine();
                         Console.WriteLine("Your chosen weapon is Rock.");
                         break;
                     case 3:
-                        Console.WriteLine();
                         Console.WriteLine("Your chosen weapon is Paper.");
                         break;
                     default:    
-                        Console.WriteLine();
                         Console.WriteLine("Please, insert correct value, either of 1 or 2 or 3, which correspond to appropriate weapon.");
                         break;
                 }
