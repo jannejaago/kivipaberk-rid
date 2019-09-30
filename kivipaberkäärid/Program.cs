@@ -1,7 +1,7 @@
 ﻿using System;
 
 /* BUGS!!! 
- * As the third point is given to either player, game still asks for user for its weapon which it shouldn't. Game should just finish with score table
+ * As the third point is given to either player, game still asks for User for its weapon which it shouldn't. Game should just finish with score table
  * without asking for user weapon again.
  */
 
@@ -26,13 +26,11 @@ namespace kivipaberkäärid
             Console.WriteLine("Paper bears Rock, Rock beats Scissors, Scissors beat Paper.");
             Console.WriteLine("Scissors corresponds to number 1, Rock corresponds to number 2, Paper correspond to number 3.");
             Console.WriteLine("Game goes on until one of us reaches 3 points. Winner takes all!");
-            Console.WriteLine("Lets begin! Insert your weapon (number).");
+            Console.WriteLine("Lets begin! Keep inserting your desired weapon (number) until the score table decides who is the winner.");
 
-            //Playing until either one gets 3 points.
-            while (userScore < 3 && cpuScore < 3)
+            while (userScore < 3 && cpuScore < 3)           //Playing until either one gets 3 points.
             {
-                //User weapon choise input.
-                userRoll = int.Parse(Console.ReadLine());
+                userRoll = int.Parse(Console.ReadLine());       //User weapon choise input.
 
                 //Checking for incorrect User input and declaration of User number input into plain simple words (User choosing weapon). Also if incorrect value
                 //inserted, asks to insert correct one. It just works somehow XD
@@ -53,8 +51,7 @@ namespace kivipaberkäärid
                         break;
                 }
                 
-                //If user inserted correct number, game goes on.
-                if (userRoll >= 1 && userRoll <= 3)
+                if (userRoll >= 1 && userRoll <= 3)         //If user inserted correct number, game goes on.
                 {
                     //CPU choosing its weapon, random number generator for CPU, scaled down to only 3 random numbers - 1 or 2 or 3.
                     Random randomGenerator = new Random();
@@ -76,21 +73,19 @@ namespace kivipaberkäärid
                     //Deciding who is the winner.
                     if ((randomNumber == 3 && userRoll == 2) || (randomNumber == 2 && userRoll == 1) || (randomNumber == 1 && userRoll == 3))
                     {
+                        cpuScore++;
                         Console.WriteLine();
                         Console.WriteLine("You LOOSE.");
-                        cpuScore++;
                         Console.WriteLine($"I have now {cpuScore} points.");
-                        Console.WriteLine("Choose your weapon again.");
                         Console.WriteLine();
                     }
 
                     else if ((randomNumber == 2 && userRoll == 3) || (randomNumber == 1 && userRoll == 2) || (randomNumber == 3 && userRoll == 1))
                     {
+                        userScore++;
                         Console.WriteLine();
                         Console.WriteLine("You WIN.");
-                        userScore++;
                         Console.WriteLine($"You have now {userScore} points.");
-                        Console.WriteLine("Choose your weapon again.");
                         Console.WriteLine();
                     }
 
@@ -98,27 +93,24 @@ namespace kivipaberkäärid
                     {
                         Console.WriteLine();
                         Console.WriteLine("It is a TIE, none of us gets point.");
-                        Console.WriteLine("Choose your weapon again.");
                         Console.WriteLine();
                     }                                      
                 }
 
-                //Game continues until either of players get 3 points.
-                else
+                else        //Game continues until either of players get 3 points.
                 {
                     continue;
                 }
             }
+
             if (cpuScore == 3)
             {
-                Console.WriteLine();
                 Console.WriteLine("One of us won the game. Lets see who it was based on our game score.");               
                 Console.WriteLine($"I have now {cpuScore} and You have now {userScore}. That means I won.");
             }
 
-            else if (userScore == 3)
+            else
             {
-                Console.WriteLine();
                 Console.WriteLine("One of us won the game. Lets see who it was based on our game score."); 
                 Console.WriteLine($"You have now {userScore} and I have now {cpuScore}. That means You won.");
             }
