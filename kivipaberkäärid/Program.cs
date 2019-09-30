@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 /* BUGS!!! 
  * As the third point is given to either player, game still asks for user for its weapon which it shouldn't. Game should just finish with score table
  * without asking for user weapon again.
@@ -35,7 +34,8 @@ namespace kivipaberkäärid
                 //User weapon choise input.
                 userRoll = int.Parse(Console.ReadLine());
 
-                //Checking for incorrect User input and declaration of User number input into plain simple words (User choosing weapon). 
+                //Checking for incorrect User input and declaration of User number input into plain simple words (User choosing weapon). Also if incorrect value
+                //inserted, asks to insert correct one. It just works somehow XD
                 switch (userRoll)
                 {
                     case 1:
