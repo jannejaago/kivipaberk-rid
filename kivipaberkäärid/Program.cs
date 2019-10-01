@@ -70,7 +70,8 @@ namespace kivipaberkäärid
                     //unless it is TIE in which case User weapon choise is asked once more, until either sides gets the last third point.
                     Console.WriteLine();
 
-                    //Deciding winner when points are below 2 on either side.
+                    //Deciding winner when points are below 2 on either side. !("logic") checks that if both players have 2 points at the same time, then it is still asked to choose your weapon.
+                    //Without this !("logic") when both players have 2 points at the same time, it is not asked properly for user input.
                     if (((randomNumber == 3 && userRoll == 2) || (randomNumber == 2 && userRoll == 1) || (randomNumber == 1 && userRoll == 3)) && ((userScore < 2 && cpuScore < 2) || !(userScore == 2 && cpuScore == 2)))
                     {
                         cpuScore++;
