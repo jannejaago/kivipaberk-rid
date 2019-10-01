@@ -74,7 +74,7 @@ namespace kivipaberkäärid
                         cpuScore++;
                         Console.WriteLine("You LOOSE.");
                         Console.WriteLine($"I have now {cpuScore} points.");
-                        Console.WriteLine("Choose your weapon again!");           
+                        Console.WriteLine("Choose your weapon again! 1 = Scissors, 2 = Rock, 3 = Paper.");           
                     }
 
                     else if (((randomNumber == 2 && userRoll == 3) || (randomNumber == 1 && userRoll == 2) || (randomNumber == 3 && userRoll == 1)) && (userScore < 2 && cpuScore < 2))
@@ -82,13 +82,13 @@ namespace kivipaberkäärid
                         userScore++;
                         Console.WriteLine("You WIN.");
                         Console.WriteLine($"You have now {userScore} points.");
-                        Console.WriteLine("Choose your weapon again!");
+                        Console.WriteLine("Choose your weapon again! 1 = Scissors, 2 = Rock, 3 = Paper.");
                     }
 
                     else if (((randomNumber == 1 && userRoll == 1) || (randomNumber == 2 && userRoll == 2) || (randomNumber == 3 && userRoll == 3)) && (userScore < 2 && cpuScore < 2))
                     {
                         Console.WriteLine("It is a TIE, none of us gets point.");
-                        Console.WriteLine("Choose your weapon again!");
+                        Console.WriteLine("Choose your weapon again! 1 = Scissors, 2 = Rock, 3 = Paper.");
                     }
 
                     else if (((randomNumber == 3 && userRoll == 2) || (randomNumber == 2 && userRoll == 1) || (randomNumber == 1 && userRoll == 3)) && ((userScore == 2 && userScore < 3) || (cpuScore == 2 && cpuScore < 3)))
@@ -108,7 +108,7 @@ namespace kivipaberkäärid
                     else
                     {
                         Console.WriteLine("It is a TIE, none of us gets point.");
-                        Console.WriteLine("Choose your weapon again!");
+                        Console.WriteLine("Choose your weapon again! 1 = Scissors, 2 = Rock, 3 = Paper.");
                     }
                     Console.WriteLine();
                 }
