@@ -69,15 +69,17 @@ namespace kivipaberkäärid
                     //If userScore or cpuScore is at 2 points, comes the last deciding game and game doesn't ask for User weapon again when either of the sides wins, 
                     //unless it is TIE in which case User weapon choise is asked once more, until either sides gets the last third point.
                     Console.WriteLine();
-                    if (((randomNumber == 3 && userRoll == 2) || (randomNumber == 2 && userRoll == 1) || (randomNumber == 1 && userRoll == 3)) && (userScore < 2 && cpuScore < 2))
+
+                    //Deciding winner when points are below 2 on either side.
+                    if (((randomNumber == 3 && userRoll == 2) || (randomNumber == 2 && userRoll == 1) || (randomNumber == 1 && userRoll == 3)) && ((userScore < 2 && cpuScore < 2) || !(userScore == 2 && cpuScore == 2)))
                     {
                         cpuScore++;
                         Console.WriteLine("You LOOSE.");
                         Console.WriteLine($"I have now {cpuScore} points.");
-                        Console.WriteLine("Choose your weapon again! 1 = Scissors, 2 = Rock, 3 = Paper.");           
+                        Console.WriteLine("Choose your weapon again! 1 = Scissors, 2 = Rock, 3 = Paper.");
                     }
 
-                    else if (((randomNumber == 2 && userRoll == 3) || (randomNumber == 1 && userRoll == 2) || (randomNumber == 3 && userRoll == 1)) && (userScore < 2 && cpuScore < 2))
+                    else if (((randomNumber == 2 && userRoll == 3) || (randomNumber == 1 && userRoll == 2) || (randomNumber == 3 && userRoll == 1)) && ((userScore < 2 && cpuScore < 2) || !(userScore == 2 && cpuScore == 2)))
                     {
                         userScore++;
                         Console.WriteLine("You WIN.");
@@ -85,20 +87,21 @@ namespace kivipaberkäärid
                         Console.WriteLine("Choose your weapon again! 1 = Scissors, 2 = Rock, 3 = Paper.");
                     }
 
-                    else if (((randomNumber == 1 && userRoll == 1) || (randomNumber == 2 && userRoll == 2) || (randomNumber == 3 && userRoll == 3)) && (userScore < 2 && cpuScore < 2))
+                    else if (((randomNumber == 1 && userRoll == 1) || (randomNumber == 2 && userRoll == 2) || (randomNumber == 3 && userRoll == 3)) && ((userScore < 2 && cpuScore < 2) || !(userScore == 2 && cpuScore == 2)))
                     {
                         Console.WriteLine("It is a TIE, none of us gets point.");
                         Console.WriteLine("Choose your weapon again! 1 = Scissors, 2 = Rock, 3 = Paper.");
                     }
 
-                    else if (((randomNumber == 3 && userRoll == 2) || (randomNumber == 2 && userRoll == 1) || (randomNumber == 1 && userRoll == 3)) && ((userScore == 2 && userScore < 3) || (cpuScore == 2 && cpuScore < 3)))
+                    //Deciding winner when points are at 2 on either side in which case it is not asked anymore for weapon input because it is last deciding game, unless it is TIE.
+                    else if (((randomNumber == 3 && userRoll == 2) || (randomNumber == 2 && userRoll == 1) || (randomNumber == 1 && userRoll == 3)) && (userScore == 2 || cpuScore == 2))
                     {
                         cpuScore++;
                         Console.WriteLine("You LOOSE.");
                         Console.WriteLine($"I have now {cpuScore} points.");
                     }
 
-                    else if (((randomNumber == 2 && userRoll == 3) || (randomNumber == 1 && userRoll == 2) || (randomNumber == 3 && userRoll == 1)) && ((userScore == 2 && userScore < 3) || (cpuScore == 2 && cpuScore < 3)))
+                    else if (((randomNumber == 2 && userRoll == 3) || (randomNumber == 1 && userRoll == 2) || (randomNumber == 3 && userRoll == 1)) && (userScore == 2 || cpuScore == 2))
                     {
                         userScore++;
                         Console.WriteLine("You WIN.");
