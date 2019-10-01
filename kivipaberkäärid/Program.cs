@@ -1,10 +1,5 @@
 ﻿using System;
 
-/* BUGS!!! 
- * As the third point is given to either player, game still asks for User for its weapon which it shouldn't. Game should just finish with score table
- * without asking for user weapon again.
- */
-
 namespace kivipaberkäärid
 {
     class Program
@@ -28,9 +23,9 @@ namespace kivipaberkäärid
             Console.WriteLine("Game goes on until one of us reaches 3 points. Winner takes all!");
             Console.WriteLine("Lets begin! Keep inserting your desired weapon (number) until the score table decides who is the winner.");
 
-            while (userScore < 3 && cpuScore < 3)           //Playing until either one gets 3 points.
+            while (userScore < 3 && cpuScore < 3)               //Playing until either one gets 3 points.
             {
-                userRoll = int.Parse(Console.ReadLine());       //User weapon choise input.
+                userRoll = int.Parse(Console.ReadLine());       //User weapon choise input as number.
 
                 //Checking for incorrect User input and declaration of User number input into plain simple words (User choosing weapon). Also if incorrect value
                 //inserted, asks to insert correct one. It just works somehow XD
@@ -47,11 +42,11 @@ namespace kivipaberkäärid
                         Console.WriteLine("Your chosen weapon is Paper.");
                         break;
                     default:    
-                        Console.WriteLine("Please, insert correct value, either of 1 or 2 or 3, which correspond to appropriate weapon.");
+                        Console.WriteLine("Please, insert correct value, either of 1 or 2 or 3, which correspond to appropriate weapon.");  //If user inserted correct number, game goes on, if not, then asks for input.
                         break;
                 }
                 
-                if (userRoll >= 1 && userRoll <= 3)         //If user inserted correct number, game goes on.
+                if (userRoll >= 1 && userRoll <= 3)             //If correct user input, cpu starts choosing its weapon.
                 {
                     //CPU choosing its weapon, random number generator for CPU, scaled down to only 3 random numbers - 1 or 2 or 3.
                     Random randomGenerator = new Random();
@@ -70,31 +65,52 @@ namespace kivipaberkäärid
                             break;                      
                     }
 
-                    //Deciding who is the winner.
-                    if ((randomNumber == 3 && userRoll == 2) || (randomNumber == 2 && userRoll == 1) || (randomNumber == 1 && userRoll == 3))
+                    //Deciding who is the winner of each game until one of players reaches 3 points. If userScore and cpuScore is bellow 2 points, game asks to input User weapon again. 
+                    //If userScore or cpuScore is at 2 points, comes the last deciding game and game doesn't ask for User weapon again when either of the sides wins, 
+                    //unless it is TIE in which case User weapon choise is asked once more, until either sides gets the last third point.
+                    Console.WriteLine();
+                    if (((randomNumber == 3 && userRoll == 2) || (randomNumber == 2 && userRoll == 1) || (randomNumber == 1 && userRoll == 3)) && (userScore < 2 && cpuScore < 2))
                     {
                         cpuScore++;
-                        Console.WriteLine();
                         Console.WriteLine("You LOOSE.");
                         Console.WriteLine($"I have now {cpuScore} points.");
-                        Console.WriteLine();
+                        Console.WriteLine("Choose your weapon again!");           
                     }
 
-                    else if ((randomNumber == 2 && userRoll == 3) || (randomNumber == 1 && userRoll == 2) || (randomNumber == 3 && userRoll == 1))
+                    else if (((randomNumber == 2 && userRoll == 3) || (randomNumber == 1 && userRoll == 2) || (randomNumber == 3 && userRoll == 1)) && (userScore < 2 && cpuScore < 2))
                     {
                         userScore++;
-                        Console.WriteLine();
                         Console.WriteLine("You WIN.");
                         Console.WriteLine($"You have now {userScore} points.");
-                        Console.WriteLine();
+                        Console.WriteLine("Choose your weapon again!");
                     }
 
-                    else if ((randomNumber == 1 && userRoll == 1) || (randomNumber == 2 && userRoll == 2) || (randomNumber == 3 && userRoll == 3))
+                    else if (((randomNumber == 1 && userRoll == 1) || (randomNumber == 2 && userRoll == 2) || (randomNumber == 3 && userRoll == 3)) && (userScore < 2 && cpuScore < 2))
                     {
-                        Console.WriteLine();
                         Console.WriteLine("It is a TIE, none of us gets point.");
-                        Console.WriteLine();
-                    }                                      
+                        Console.WriteLine("Choose your weapon again!");
+                    }
+
+                    else if (((randomNumber == 3 && userRoll == 2) || (randomNumber == 2 && userRoll == 1) || (randomNumber == 1 && userRoll == 3)) && ((userScore == 2 && userScore < 3) || (cpuScore == 2 && cpuScore < 3)))
+                    {
+                        cpuScore++;
+                        Console.WriteLine("You LOOSE.");
+                        Console.WriteLine($"I have now {cpuScore} points.");
+                    }
+
+                    else if (((randomNumber == 2 && userRoll == 3) || (randomNumber == 1 && userRoll == 2) || (randomNumber == 3 && userRoll == 1)) && ((userScore == 2 && userScore < 3) || (cpuScore == 2 && cpuScore < 3)))
+                    {
+                        userScore++;
+                        Console.WriteLine("You WIN.");
+                        Console.WriteLine($"You have now {userScore} points.");
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("It is a TIE, none of us gets point.");
+                        Console.WriteLine("Choose your weapon again!");
+                    }
+                    Console.WriteLine();
                 }
 
                 else        //Game continues until either of players get 3 points.
@@ -103,6 +119,7 @@ namespace kivipaberkäärid
                 }
             }
 
+            //When either of players reaches 3 points, game tells who won and by how many points.
             if (cpuScore == 3)
             {
                 Console.WriteLine("One of us won the game. Lets see who it was based on our game score.");               
